@@ -96,16 +96,16 @@ data class DetailState(
     val isUpdatingNote: Boolean = false,
     )
 
-@Suppress("UNCHECKED_CAST")
-class DetailedViewModelFactory(
-    private val noteId: Long,
-    private val assistedFactory: DetailAssistedFactory
-): ViewModelProvider.Factory {
-    override fun <T: ViewModel> create(modelClass: Class<T>) : T {
-        return assistedFactory.create(noteId) as T
-    }
-}
-
-interface DetailAssistedFactory {
-    fun create(noteId: Long): DetailViewModel
-}
+//@Suppress("UNCHECKED_CAST")
+//class DetailedViewModelFactory(
+//    private val noteId: Long,
+//    private val assistedFactory: DetailAssistedFactory
+//): ViewModelProvider.Factory {
+//    override fun <T: ViewModel> create(modelClass: Class<T>) : T {
+//        return assistedFactory.create(noteId) as T
+//    }
+//}
+//
+//interface DetailAssistedFactory {
+//    fun create(noteId: Long): DetailViewModel
+//}
