@@ -86,7 +86,7 @@ private fun DetailScreen(
     onNavigate: () -> Unit
 ) {
 
-    Column (
+    Column(
         modifier = modifier.fillMaxSize()
     ) {
         TopSection(
@@ -98,21 +98,21 @@ private fun DetailScreen(
         )
         Spacer(modifier = Modifier.size(12.dp))
         AnimatedVisibility(isFormNotBlank) {
-           Row (
-               modifier = Modifier
-                   .fillMaxWidth()
-                   .padding(12.dp),
-               horizontalArrangement = Arrangement.End
-           ){
-               IconButton(
-                   onClick = { onBtnClick }
-               ) {
-                   val icon = if (isUpdatingNote) Icons.Default.Update
-                   else Icons.Default.Check
-                   Icon(imageVector = icon, contentDescription = null)
-               }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(12.dp),
+                horizontalArrangement = Arrangement.End
+            ) {
+                IconButton(
+                    onClick = { onBtnClick }
+                ) {
+                    val icon = if (isUpdatingNote) Icons.Default.Update
+                    else Icons.Default.Check
+                    Icon(imageVector = icon, contentDescription = null)
+                }
 
-           }
+            }
         }
         Spacer(modifier = modifier.size(12.dp))
         NotesTextField(
@@ -134,11 +134,11 @@ fun TopSection(
     onTitleChange: (String) -> Unit,
     onNavigate: () -> Unit,
 ) {
-    Row (
+    Row(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
-    ){
+    ) {
         IconButton(onClick = { onNavigate }
         ) {
             Icon(
@@ -155,7 +155,7 @@ fun TopSection(
         )
         IconButton(
             onClick = { onBookMarkChange(!isBookMark) }) {
-            val icon = if(isBookMark) Icons.Default.BookmarkRemove
+            val icon = if (isBookMark) Icons.Default.BookmarkRemove
             else Icons.Outlined.BookmarkAdd
             Icon(imageVector = icon, contentDescription = null)
         }
