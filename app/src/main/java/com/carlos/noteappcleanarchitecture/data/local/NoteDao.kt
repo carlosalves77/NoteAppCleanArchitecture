@@ -15,7 +15,7 @@ interface NoteDao {
     @Query("SELECT * FROM notes ORDER BY createdDate")
     fun getAllNotes(): Flow<List<Note>>
 
-    @Query("SELECT * FROM notes WHERE id=id ORDER BY createdDate")
+    @Query("SELECT * FROM notes WHERE id=:id ORDER BY createdDate")
     fun getNoteById(id: Long): Flow<Note>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

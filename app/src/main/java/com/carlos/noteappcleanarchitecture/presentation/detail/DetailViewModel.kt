@@ -10,18 +10,17 @@ import com.carlos.noteappcleanarchitecture.data.local.model.Note
 import com.carlos.noteappcleanarchitecture.domain.use_cases.AddUseCase
 import com.carlos.noteappcleanarchitecture.domain.use_cases.GetNoteByIdUseCase
 import dagger.assisted.Assisted
-import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.util.Date
-import javax.inject.Inject
 
-@HiltViewModel
-class DetailViewModel @Inject constructor(
+
+class DetailViewModel @AssistedInject constructor(
     private val addUseCase: AddUseCase,
     private val getNoteByIdUseCase: GetNoteByIdUseCase,
-    @Assisted private val noteId: Long
-
+  @Assisted private val noteId: Long
 ): ViewModel() {
 
     var state by mutableStateOf(DetailState())
@@ -96,16 +95,17 @@ data class DetailState(
     val isUpdatingNote: Boolean = false,
     )
 
-//@Suppress("UNCHECKED_CAST")
-//class DetailedViewModelFactory(
-//    private val noteId: Long,
-//    private val assistedFactory: DetailAssistedFactory
-//): ViewModelProvider.Factory {
-//    override fun <T: ViewModel> create(modelClass: Class<T>) : T {
-//        return assistedFactory.create(noteId) as T
-//    }
-//}
-//
-//interface DetailAssistedFactory {
-//    fun create(noteId: Long): DetailViewModel
-//}
+@Suppress("UNCHECKED_CAST")
+class DetailedViewModelFactory(
+    private val noteId: Long,
+    private val assistedFactory: DetailAssistedFactory
+): ViewModelProvider.Factory {
+    override fun <T: ViewModel> create(modelClass: Class<T>) : T {
+        return assistedFactory.create(noteId) as T
+    }
+}
+
+@AssistedFactory
+interface DetailAssistedFactory {
+    fun create(noteId: Long): DetailViewModel
+}

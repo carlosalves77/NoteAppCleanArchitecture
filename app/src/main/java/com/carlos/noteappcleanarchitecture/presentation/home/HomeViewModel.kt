@@ -7,6 +7,7 @@ import com.carlos.noteappcleanarchitecture.data.local.model.Note
 import com.carlos.noteappcleanarchitecture.domain.use_cases.DeleteUseCase
 import com.carlos.noteappcleanarchitecture.domain.use_cases.GetAllNotesUseCase
 import com.carlos.noteappcleanarchitecture.domain.use_cases.UpdateNoteUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,7 +16,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
+@HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getAllNotesUseCase: GetAllNotesUseCase,
     private val deleteNoteUseCase: DeleteUseCase,

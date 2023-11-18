@@ -34,20 +34,20 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 @Composable
 fun DetailScreen(
     modifier: Modifier = Modifier,
-//    noteId: Long,
-//    assistedFactory: DetailAssistedFactory,
+    noteId: Long,
+    assistedFactory: DetailAssistedFactory,
     navigateUp: () -> Unit
 ) {
 
-    val viewModel = viewModel<DetailViewModel>()
+//    val viewModel = viewModel<DetailViewModel>()
 
-//    val viewModel = viewModel(
-//        modelClass = DetailViewModel::class.java,
-//        factory = DetailedViewModelFactory(
-//            noteId = noteId,
-//            assistedFactory = assistedFactory
-//        )
-//    )
+    val viewModel = viewModel(
+        modelClass = DetailViewModel::class.java,
+        factory = DetailedViewModelFactory(
+            noteId = noteId,
+            assistedFactory = assistedFactory
+        )
+    )
 
     val state = viewModel.state
 
@@ -113,7 +113,9 @@ private fun DetailScreen(
                 }
 
             }
-        }
+
+
+    }
         Spacer(modifier = modifier.size(12.dp))
         NotesTextField(
             modifier = Modifier.size(12.dp),
