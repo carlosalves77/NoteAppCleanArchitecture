@@ -26,7 +26,7 @@ class NoteRepositoryImpl @Inject constructor(
     }
 
     override suspend fun delete(id: Long) {
-        delete(id)
+        noteDao.delete(id)
     }
 
     override fun getBookMarkedNotes(): Flow<List<Note>> {

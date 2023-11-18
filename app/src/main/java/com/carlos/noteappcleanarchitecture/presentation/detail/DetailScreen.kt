@@ -105,7 +105,7 @@ private fun DetailScreen(
                 horizontalArrangement = Arrangement.End
             ) {
                 IconButton(
-                    onClick = { onBtnClick }
+                    onClick = { onBtnClick() }
                 ) {
                     val icon = if (isUpdatingNote) Icons.Default.Update
                     else Icons.Default.Check
@@ -118,7 +118,7 @@ private fun DetailScreen(
     }
         Spacer(modifier = modifier.size(12.dp))
         NotesTextField(
-            modifier = Modifier.size(12.dp),
+            modifier = Modifier.weight(1f),
             value = content,
             onValueChange = onContentChange,
             label = "Content"
@@ -141,7 +141,7 @@ fun TopSection(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        IconButton(onClick = { onNavigate }
+        IconButton(onClick = { onNavigate() }
         ) {
             Icon(
                 Icons.Default.ArrowBack,
