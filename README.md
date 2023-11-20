@@ -11,4 +11,4 @@ This is a Android Note App made with Clean Architecture.
 
   ### App Screenshots
 
-  | Home Screen | ![](https://ibb.co/4VDDCg1)   | New/Edit Note Screen | ![](https://ibb.co/2Mm3RMt) | New/Edit Note Screen | ![](https://ibb.co/P17NXxp)   
+  | Home Screen | ![](https://i.ibb.co/FDffcqH/Home.png)   | New/Edit Note Screen | ![](https://i.ibb.co/my15dyq/edit-note.png) | New/Edit Note Screen | ![](https://i.ibb.co/3SD761X/book-mark.png)   
